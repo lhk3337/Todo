@@ -1,4 +1,5 @@
 {
   "name": "Todo",
+  "description": "Good To DO App made with React Native",
   "displayName": "Todo"
 }
