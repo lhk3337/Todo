@@ -15,18 +15,49 @@ export default class ToDo extends Component {
     isCompleted: false,
   };
   render() {
-    const {isCompleted} = this.state;
+    const {isCompleted, isEditing} = this.state;
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={this._toggleComplete}>
-          <View
+        <View stlye={styles.column}>
+          <TouchableOpacity onPress={this._toggleComplete}>
+            <View
+              style={[
+                styles.circle,
+                isCompleted ? styles.completedCircle : styles.uncompletedCircle,
+              ]}
+            />
+          </TouchableOpacity>
+          <Text
             style={[
-              styles.circle,
-              isCompleted ? styles.completedCircle : styles.uncompletedCircle,
-            ]}
-          />
-        </TouchableOpacity>
-        <Text style={styles.text}>Hello I'm a ToDo</Text>
+              styles.text,
+              isCompleted ? styles.completedText : styles.uncompletedText,
+            ]}>
+            Hello I'm a ToDo
+          </Text>
+        </View>
+
+        {isEditing ? (
+          <View style={styles.actions}>
+            <TouchableOpacity>
+              <View style={styles.actionContainer}>
+                <Text style={styles.actionText}>✅</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        ) : (
+          <View style={styles.actions}>
+            <TouchableOpacity>
+              <View style={styles.actionContainer}>
+                <Text style={styles.actionText}>✏️</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <View style={styles.actionContainer}>
+                <Text style={styles.actionText}>❌</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
     );
   }
@@ -46,17 +77,12 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  text: {
-    fontWeight: '600',
-    fontSize: 20,
-    marginVertical: 20,
+    justifyContent: 'space-between',
   },
   circle: {
     width: 30,
     height: 30,
     borderRadius: 15,
-    borderColor: 'red',
     borderWidth: 3,
     marginRight: 20,
   },
@@ -65,5 +91,30 @@ const styles = StyleSheet.create({
   },
   uncompletedCircle: {
     borderColor: '#F23657',
+  },
+  text: {
+    fontWeight: '600',
+    fontSize: 20,
+    marginVertical: 20,
+  },
+  completedText: {
+    color: '#bbb',
+    textDecorationLine: 'line-through',
+  },
+  uncompletedText: {
+    color: '#353839',
+  },
+  column: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: width / 2,
+    justifyContent: 'space-between',
+  },
+  actions: {
+    flexDirection: 'row',
+  },
+  actionContainer: {
+    marginVertical: 10,
+    marginHorizontal: 10,
   },
 });
