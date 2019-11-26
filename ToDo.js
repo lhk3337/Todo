@@ -18,7 +18,7 @@ export default class ToDo extends Component {
     const {isCompleted, isEditing} = this.state;
     return (
       <View style={styles.container}>
-        <View stlye={styles.column}>
+        <View style={styles.column}>
           <TouchableOpacity onPress={this._toggleComplete}>
             <View
               style={[
@@ -38,7 +38,7 @@ export default class ToDo extends Component {
 
         {isEditing ? (
           <View style={styles.actions}>
-            <TouchableOpacity>
+            <TouchableOpacity onPressOut={this._finishEditing}>
               <View style={styles.actionContainer}>
                 <Text style={styles.actionText}>✅</Text>
               </View>
@@ -46,7 +46,7 @@ export default class ToDo extends Component {
           </View>
         ) : (
           <View style={styles.actions}>
-            <TouchableOpacity>
+            <TouchableOpacity onPressOut={this._startEditing}>
               <View style={styles.actionContainer}>
                 <Text style={styles.actionText}>✏️</Text>
               </View>
@@ -66,6 +66,16 @@ export default class ToDo extends Component {
       return {
         isCompleted: !prevState.isCompleted,
       };
+    });
+  };
+  _startEditing = () => {
+    this.setState({
+      isEditing: true,
+    });
+  };
+  _finishEditing = () => {
+    this.setState({
+      isEditing: false,
     });
   };
 }
