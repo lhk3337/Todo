@@ -22,14 +22,7 @@
 
 ### Back-end
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg" width="70" height="25">
-<img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" width="90" height="30">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg" width="90" height="30">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" width="90" height="30">
-
-#
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Django_logo.svg" width="70" height="25"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" width="90" height="30"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg" width="90" height="30"><img src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" width="90" height="30">
 
 ## About Project
 
